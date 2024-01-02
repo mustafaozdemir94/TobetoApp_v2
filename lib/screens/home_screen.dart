@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+                  padding: const EdgeInsets.fromLTRB(40, 0, 50, 0),
                   child: Image.asset('assets/i_kodluyor.png'),
                 ),
                 const Text(
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               DefaultTabController(
                 length: 4,
-                child: TabBar(isScrollable: false, tabs: [
+                child: TabBar(isScrollable: true, tabs: [
                   Tab(
                     child: Text("Başvurularım"),
                   ),
@@ -93,7 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Text("Duyuru ve Haberlerim"),
                   ),
                   Tab(
-                    child: Text("Anketlerim"),
+                    child: Text(
+                      "Anketlerim",
+                    ),
                   ),
                 ]),
               ),
