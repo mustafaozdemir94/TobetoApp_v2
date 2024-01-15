@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tobetoapp_v2/main.dart';
 import 'package:tobetoapp_v2/screens/login_page.dart';
+import 'package:tobetoapp_v2/screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -92,7 +93,7 @@ class splashloginButton extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const LoginPage()),
+          MaterialPageRoute(builder: (context) => const LoginScreen()),
         );
       },
       child: Text(
