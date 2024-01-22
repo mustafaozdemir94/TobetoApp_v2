@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:tobetoapp_v2/screens/deneme.dart';
-
-// ignore: unused_import
-import 'package:tobetoapp_v2/screens/login_page.dart';
-// ignore: unused_import
-import 'package:tobetoapp_v2/screens/splash_screen.dart';
-
-Color buttonColor = const Color.fromARGB(255, 155, 51, 255);
+import 'package:tobetoappclone/screens/login_screen.dart';
+import 'package:tobetoappclone/screens/splash_screen.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      useMaterial3: true,
-      brightness: Brightness.light,
+  runApp(
+    MaterialApp(
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/welcome': (context) => const LoginScreen(),
+      },
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: true),
+      //home: const SplashScreen(),
     ),
-    darkTheme: ThemeData(brightness: Brightness.dark),
-    home: const SplashScreen(),
-  ));
+  );
 }
-// hi
