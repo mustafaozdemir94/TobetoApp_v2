@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tobetoappclone/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+            padding: const EdgeInsets.fromLTRB(50, 50, 50, 0),
             child: Center(
               child: Container(
                 height: 200,
@@ -29,9 +30,11 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          const Text(
+          Text(
             "Yeni Nesil Öğrenme Deneyimi!",
-            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            style: GoogleFonts.ptSans(
+              textStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ),
           const SizedBox(height: 120),
           Form(
@@ -41,14 +44,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: TextFormField(
                     obscureText: false,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: "E-Posta",
-                      hintStyle: TextStyle(color: Colors.white),
+                      hintStyle: GoogleFonts.ptSans(
+                        textStyle: const TextStyle(color: Colors.white),
+                      ),
 
-                      enabledBorder: OutlineInputBorder(
+                      enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blueGrey),
                       ),
                       fillColor: Colors.blueGrey, //
@@ -67,13 +72,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: TextFormField(
                     obscureText: true,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: "Şifre",
-                      hintStyle: TextStyle(color: Colors.white),
-                      enabledBorder: OutlineInputBorder(
+                      hintStyle: GoogleFonts.ptSans(
+                        textStyle: const TextStyle(color: Colors.white),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blueGrey),
                       ),
                       fillColor: Colors.blueGrey, //
@@ -88,9 +95,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       TextButton(
                           onPressed: () {},
-                          child: const Text(
+                          child: Text(
                             "Şifremi Unuttum",
-                            style: TextStyle(color: Colors.white),
+                            style: GoogleFonts.ptSans(
+                              textStyle: const TextStyle(color: Colors.white),
+                            ),
                           )),
                     ],
                   ),
@@ -109,18 +118,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     margin: const EdgeInsets.symmetric(horizontal: 25),
                     padding: const EdgeInsets.all(25),
                     decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.black87,
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Center(
-                      child: Text(
-                        "Giriş Yap",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
+                    child: Center(
+                      child: Text("Giriş Yap",
+                          style: GoogleFonts.ptSans(
+                            textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          )),
                     ),
                   ),
                 ),
@@ -135,14 +144,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
-                        "Kayıt Sayfasına Git",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
+                      child: Text("Kayıt Sayfasına Git",
+                          style: GoogleFonts.ptSans(
+                            textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
+                          )),
                     ),
                     const Expanded(
                       child: Divider(
