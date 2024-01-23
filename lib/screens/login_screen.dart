@@ -10,6 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  var _isLogin = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Center(
-                      child: Text("Giriş Yap",
+                      child: Text(_isLogin ? "Giriş Yap" : "Kayıt Ol",
                           style: GoogleFonts.ptSans(
                             textStyle: const TextStyle(
                               color: Colors.white,
@@ -143,8 +144,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
-                      child: Text("Kayıt Sayfasına Git",
+                      onPressed: () {
+                        setState(() {
+                          _isLogin = !_isLogin;
+                        });
+                      },
+                      child: Text(_isLogin ? "Kayıt Sayfasına Git" : "Giriş Sayfasına Git",
                           style: GoogleFonts.ptSans(
                             textStyle: const TextStyle(
                               color: Colors.white,
