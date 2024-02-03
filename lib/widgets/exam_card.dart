@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ExamCard extends StatefulWidget {
   const ExamCard({Key? key}) : super(key: key);

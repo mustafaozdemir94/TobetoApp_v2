@@ -1,4 +1,4 @@
-import 'dart:async';
+/*import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -37,3 +37,4 @@ class _SplashScreenState extends State<SplashScreen> {
         ));
   }
 }
+*/

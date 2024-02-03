@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:tobetoappv2/widgets/app_bar_widget.dart';
-import 'package:tobetoappv2/widgets/applications_card.dart';
-import 'package:tobetoappv2/widgets/exam_card.dart';
-import 'package:tobetoappv2/widgets/notice_card.dart';
-import 'package:tobetoappv2/widgets/survey_card.dart';
-import 'package:tobetoappv2/widgets/trainings_card.dart';
-import 'package:tobetoappv2/widgets/trainings_card_2.dart';
+import 'package:tobetoappclone/widgets/app_bar_widget.dart';
+import 'package:tobetoappclone/widgets/applications_card.dart';
+import 'package:tobetoappclone/widgets/exam_card.dart';
+import 'package:tobetoappclone/widgets/notice_card.dart';
+import 'package:tobetoappclone/widgets/survey_card.dart';
+import 'package:tobetoappclone/widgets/trainings_card.dart';
+import 'package:tobetoappclone/widgets/trainings_card_2.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -159,3 +159,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+*/

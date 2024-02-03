@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tobetoappclone/screens/home_screen.dart';
 
@@ -10,7 +10,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  var _isLogin = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,3 +173,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+*/

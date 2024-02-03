@@ -1,17 +1,27 @@
-import 'package:flutter/material.dart';
-import 'package:tobetoappclone/screens/login_screen.dart';
-import 'package:tobetoappclone/screens/splash_screen.dart';
+// Tekrar dersinin 01.11 saatinde kaldım.
 
-void main() {
-  runApp(
-    MaterialApp(
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/welcome': (context) => const LoginScreen(),
-      },
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
-      //home: const SplashScreen(),
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:tobetoappv2/blocs/auth/auth_bloc.dart';
+import 'package:tobetoappv2/firebase_options.dart';
+import 'package:tobetoappv2/screens/start.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(MultiBlocProvider(
+    providers: [BlocProvider<AuthBloc>(create: (context) => AuthBloc())],
+    child: const MaterialApp(
+      home: StartPage(),
     ),
-  );
+  ));
 }
+// BLoC
+// Firebase
+
+
+// git rm . --cached -rf 
+// git add .
+// git commit -m "remove files"
+// git push origin branch

@@ -1,4 +1,4 @@
-name: tobetoappclone
+name: tobetoappv2
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -41,6 +41,9 @@ dependencies:
   google_nav_bar: ^5.0.6
   lottie: ^3.0.0
   firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  flutter_bloc: ^8.1.3
+  cloud_firestore: ^4.15.3
 
 dev_dependencies:
   flutter_test:
