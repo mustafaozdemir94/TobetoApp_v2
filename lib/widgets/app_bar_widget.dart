@@ -9,13 +9,6 @@ class appBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      actions: [
-        IconButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
-            },
-            icon: const Icon(Icons.logout))
-      ],
       title: Padding(
         padding: const EdgeInsets.fromLTRB(10, 20, 60, 20),
         child: Image.asset('assets/666.png'),
@@ -28,6 +21,7 @@ class appBar extends StatelessWidget {
         isScrollable: false,
         labelColor: Colors.white,
         indicatorColor: Colors.white,
+        dividerColor: Colors.white,
         tabs: [
           Tab(
             height: 120,
@@ -40,7 +34,7 @@ class appBar extends StatelessWidget {
             icon: Icon(Icons.cast_for_education),
           ),
           Tab(
-            iconMargin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+            iconMargin: EdgeInsets.fromLTRB(0, 5, 10, 0),
             height: 120,
             text: "Duyurular\nHaberlerim",
             icon: Icon(Icons.announcement_outlined),

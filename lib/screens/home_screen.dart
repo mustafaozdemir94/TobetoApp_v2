@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:tobetoappv2/widgets/app_bar_widget.dart';
 import 'package:tobetoappv2/widgets/applications_card.dart';
+import 'package:tobetoappv2/widgets/drawer.dart';
 import 'package:tobetoappv2/widgets/exam_card.dart';
 import 'package:tobetoappv2/widgets/notice_card.dart';
 import 'package:tobetoappv2/widgets/survey_card.dart';
@@ -22,11 +23,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        drawer: const drawerItem(),
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(180),
           child: appBar(),
         ),
-        drawer: const Drawer(child: Text("data")),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -140,16 +141,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   text: "Ana Sayfa",
                 ),
                 GButton(
-                  icon: Icons.favorite_border,
-                  text: "Favoriler",
+                  icon: Icons.checklist,
+                  text: "Değerlendirmeler",
                 ),
                 GButton(
-                  icon: Icons.search,
-                  text: "Arama",
+                  icon: Icons.list,
+                  text: "Katalog",
                 ),
                 GButton(
-                  icon: Icons.settings,
-                  text: "Ayarlar",
+                  icon: Icons.calendar_month_outlined,
+                  text: "Takvim",
                 ),
               ],
             ),
