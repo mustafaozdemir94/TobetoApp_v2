@@ -1,6 +1,9 @@
 /*import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tobetoappclone/screens/home_screen.dart';
+import 'package:tobetoappv2/blocs/auth/auth_bloc.dart';
+import 'package:tobetoappv2/blocs/auth/auth_event.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,6 +13,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final String _email = '';
+  final String _password = '';
+
+  void _submit() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      context.read<AuthBloc>().add(Login(email: _email, password: _password));
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class appBar extends StatelessWidget {
@@ -8,6 +9,13 @@ class appBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actions: [
+        IconButton(
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+            },
+            icon: const Icon(Icons.logout))
+      ],
       title: Padding(
         padding: const EdgeInsets.fromLTRB(10, 20, 60, 20),
         child: Image.asset('assets/666.png'),
