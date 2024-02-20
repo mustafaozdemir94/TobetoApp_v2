@@ -4,8 +4,11 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:tobetoappv2/widgets/app_bar_widget.dart';
 import 'package:tobetoappv2/widgets/applications_card.dart';
 import 'package:tobetoappv2/widgets/drawer.dart';
+import 'package:tobetoappv2/widgets/evaluation_ui_card.dart';
 import 'package:tobetoappv2/widgets/exam_card.dart';
 import 'package:tobetoappv2/widgets/notice_card.dart';
+import 'package:tobetoappv2/widgets/profil_ui_card.dart';
+import 'package:tobetoappv2/widgets/startlearning_ui_card.dart';
 import 'package:tobetoappv2/widgets/survey_card.dart';
 import 'package:tobetoappv2/widgets/trainings_card.dart';
 import 'package:tobetoappv2/widgets/trainings_card_2.dart';
@@ -108,17 +111,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: double.infinity,
                     height: 30,
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   SizedBox(
-                    height: 200,
+                    height: 150,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: const [
-                        ExamCard(),
-                        ExamCard(),
-                        ExamCard(),
+                        ProfilUiCard(),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        EvaluationUiCard(),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        StartlearningUiCard(),
                       ],
                     ),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  )
                 ],
               )
             ],

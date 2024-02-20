@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class appBar extends StatelessWidget {
   const appBar({
@@ -26,17 +27,21 @@ class appBar extends StatelessWidget {
           Tab(
             height: 120,
             text: "Başvurularım",
-            icon: Icon(Icons.settings_applications),
+            icon: Icon(
+              Icons.settings_applications,
+            ),
           ),
           Tab(
             height: 120,
             text: "Eğitimlerim",
-            icon: Icon(Icons.cast_for_education),
+            icon: Icon(
+              Icons.cast_for_education,
+            ),
           ),
           Tab(
-            iconMargin: EdgeInsets.fromLTRB(0, 5, 10, 0),
+            iconMargin: EdgeInsets.fromLTRB(0, 15, 10, 5),
             height: 120,
-            text: "Duyurular\nHaberlerim",
+            text: " Duyurular\nHaberlerim",
             icon: Icon(Icons.announcement_outlined),
           ),
           Tab(
