@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tobetoappv2/blocs/auth/auth_bloc.dart';
-import 'package:tobetoappv2/blocs/auth/auth_event.dart';
+import 'package:tobetoappv2/api/blocs/auth/auth_bloc.dart';
+import 'package:tobetoappv2/api/blocs/auth/auth_event.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -19,7 +19,7 @@ class _LoginFormState extends State<LoginForm> {
   void _submit() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      context.read<AuthBloc>().add(Login(email: _email, password: _password));
+      context.read<AuthBloc>().add(LoginEvent(email: _email, password: _password));
     }
   }
 

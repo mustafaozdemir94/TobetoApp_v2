@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tobetoappv2/blocs/auth/auth_bloc.dart';
-import 'package:tobetoappv2/blocs/auth/auth_event.dart';
+import 'package:tobetoappv2/api/blocs/auth/auth_bloc.dart';
+import 'package:tobetoappv2/api/blocs/auth/auth_event.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
@@ -20,7 +20,7 @@ class _RegisterFormState extends State<RegisterForm> {
   void _submit() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      context.read<AuthBloc>().add(Register(email: _email, password: _password, username: _username));
+      context.read<AuthBloc>().add(RegisterEvent(email: _email, password: _password, username: _username));
     }
   }
 

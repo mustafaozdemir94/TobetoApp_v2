@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tobetoappv2/screens/profil_screen.dart';
 
 class drawerItem extends StatelessWidget {
   const drawerItem({
@@ -83,6 +84,13 @@ class drawerItem extends StatelessWidget {
                   leading: const Icon(Icons.checklist),
                 ),
                 ListTile(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProfilScreen(),
+                        ));
+                  },
                   title: Text(
                     "Profilim",
                     style: GoogleFonts.ptSans(

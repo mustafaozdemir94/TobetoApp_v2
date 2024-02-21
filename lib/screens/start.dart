@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tobetoappv2/blocs/auth/auth_bloc.dart';
-import 'package:tobetoappv2/blocs/auth/auth_state.dart';
+import 'package:tobetoappv2/api/blocs/auth/auth_bloc.dart';
+import 'package:tobetoappv2/api/blocs/auth/auth_state.dart';
 import 'package:tobetoappv2/screens/auth.dart';
 import 'package:tobetoappv2/screens/home_screen.dart';
 
