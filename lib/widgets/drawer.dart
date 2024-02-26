@@ -75,6 +75,7 @@ class drawerItem extends StatelessWidget {
                   leading: const Icon(Icons.home),
                 ),
                 ListTile(
+                  onTap: () {},
                   title: Text(
                     "Değerlendirmeler",
                     style: GoogleFonts.ptSans(

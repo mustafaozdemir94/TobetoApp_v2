@@ -39,12 +39,13 @@ class _TrainingsCardState extends State<TrainingsCard> {
         children: [
           Container(
             height: 100,
-            width: 350,
+            width: 300,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               image: const DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage("assets/e.jpg"),
+                image: NetworkImage(
+                    "https://firebasestorage.googleapis.com/v0/b/tobetoappv2.appspot.com/o/videos%2Fvideo1.jpg?alt=media&token=37bf34a4-1d78-486e-a8af-ca27cb6a5940"),
               ),
             ),
           ),
