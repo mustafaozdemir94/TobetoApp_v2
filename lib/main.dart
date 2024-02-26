@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobetoappv2/api/blocs/auth/auth_bloc.dart';
+import 'package:tobetoappv2/api/blocs/course/course_bloc.dart';
 import 'package:tobetoappv2/api/blocs/profile/profile_bloc.dart';
 import 'package:tobetoappv2/api/repository/auth_repository.dart';
+import 'package:tobetoappv2/api/repository/course_repository.dart';
 import 'package:tobetoappv2/api/repository/storage_repository.dart';
 import 'package:tobetoappv2/api/repository/user_repository.dart';
 import 'package:tobetoappv2/firebase_options.dart';
@@ -18,7 +20,8 @@ void main() async {
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider<ProfileBloc>(create: (context) => ProfileBloc(StorageRepository(), UserRepository())),
-      BlocProvider<AuthBloc>(create: (context) => AuthBloc(AuthRepository(), FirebaseAuth.instance, UserRepository()))
+      BlocProvider<AuthBloc>(create: (context) => AuthBloc(AuthRepository(), FirebaseAuth.instance, UserRepository())),
+      BlocProvider<CourseBloc>(create: (context) => CourseBloc(courseRepository: CourseRepository()))
     ],
     child: const MaterialApp(
       home: StartPage(),

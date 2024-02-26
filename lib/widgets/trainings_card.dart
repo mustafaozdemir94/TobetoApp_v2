@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:tobetoappv2/models/course_model.dart';
+import 'package:tobetoappv2/screens/course_detay.dart';
+
 class TrainingsCard extends StatefulWidget {
-  const TrainingsCard({Key? key}) : super(key: key);
+  final CourseModel course;
+
+  const TrainingsCard({
+    Key? key,
+    required this.course,
+  }) : super(key: key);
 
   @override
   _TrainingsCardState createState() => _TrainingsCardState();
 }
 
 class _TrainingsCardState extends State<TrainingsCard> {
+  final route = const CourseDetay().toString();
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 350,
       height: 200,
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
@@ -25,12 +34,6 @@ class _TrainingsCardState extends State<TrainingsCard> {
             offset: const Offset(0, 3),
           ),
         ],
-        /* border: const Border(
-          left: BorderSide(
-            color: Colors.white, // Sol köşe rengi       // Bu tasarımda ihtiyaç yok
-            width: 10,
-          ),
-        ), */
         color: Colors.white,
       ),
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -38,19 +41,18 @@ class _TrainingsCardState extends State<TrainingsCard> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 100,
+            height: 110,
             width: 300,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              image: const DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                    "https://firebasestorage.googleapis.com/v0/b/tobetoappv2.appspot.com/o/videos%2Fvideo1.jpg?alt=media&token=37bf34a4-1d78-486e-a8af-ca27cb6a5940"),
+                image: AssetImage(widget.course.imagePath!),
               ),
             ),
           ),
           Text(
-            "Dr. Ecmel Ayral'dan Hoşgeldin Mesajı",
+            widget.course.title!,
             style: GoogleFonts.ptSans(
               textStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
@@ -62,7 +64,7 @@ class _TrainingsCardState extends State<TrainingsCard> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "21 Eylül 2023 15:20",
+                widget.course.date!,
                 style: GoogleFonts.ptSans(
                   textStyle: const TextStyle(
                     fontWeight: FontWeight.normal,
@@ -71,7 +73,9 @@ class _TrainingsCardState extends State<TrainingsCard> {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, "route", arguments: widget.course.title);
+                },
                 child: Container(
                   child: Text(
                     "Eğitime Git =>",

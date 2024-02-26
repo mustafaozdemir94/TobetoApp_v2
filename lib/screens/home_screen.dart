@@ -1,6 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:tobetoappv2/api/blocs/course/course_bloc.dart';
+import 'package:tobetoappv2/api/blocs/course/course_event.dart';
+import 'package:tobetoappv2/api/blocs/course/course_state.dart';
+import 'package:tobetoappv2/constants/collection_names.dart';
+import 'package:tobetoappv2/data/course_dummy.dart';
 import 'package:tobetoappv2/widgets/app_bar_widget.dart';
 import 'package:tobetoappv2/widgets/applications_card.dart';
 import 'package:tobetoappv2/widgets/drawer.dart';
@@ -23,6 +30,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    final courseCollection = firebaseFirestore.collection(Collections.course);
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -47,12 +56,28 @@ class _HomeScreenState extends State<HomeScreen> {
                         ApplicationsCard(),
                       ],
                     ),
-                    ListView(
-                      scrollDirection: Axis.horizontal, // Yatay sıralama için
-                      children: const [
-                        TrainingsCard(),
-                        TrainingsCard2(),
-                      ],
+                    BlocBuilder<CourseBloc, CourseState>(
+                      builder: (context, state) {
+                        if (state is CourseInitial) {
+                          context.read<CourseBloc>().add(FetchCourse());
+                        }
+                        if (state is CourseLoading) {
+                          return const Center(child: CircularProgressIndicator());
+                        }
+                        if (state is CourseLoaded) {
+                          final course = state.courses;
+
+                          return ListView.builder(
+                            itemCount: state.courses.length,
+
+                            itemBuilder: (context, index) {
+                              return TrainingsCard(course: course[index]);
+                            },
+                            scrollDirection: Axis.horizontal, // Yatay sıralama için
+                          );
+                        }
+                        return Container();
+                      },
                     ),
                     ListView(
                       scrollDirection: Axis.horizontal, // Yatay sıralama için
