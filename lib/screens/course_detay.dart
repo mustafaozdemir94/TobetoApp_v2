@@ -29,7 +29,26 @@ class _CourseDetayState extends State<CourseDetay> {
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
-            title: const Text("Video Detay"),
+            centerTitle: true,
+            title: Container(
+              width: 200,
+              height: 200,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/666.png'),
+                ),
+              ),
+            ),
+            backgroundColor: Colors.blueGrey,
+            elevation: 22,
+            bottom: const PreferredSize(
+                preferredSize: Size.fromHeight(75), child: SizedBox()),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(100),
+                bottomRight: Radius.circular(100),
+              ),
+            ),
           ),
           body: BlocBuilder<CourseBloc, CourseState>(builder: (context, state) {
             if (state is CourseInitial) {
@@ -40,7 +59,8 @@ class _CourseDetayState extends State<CourseDetay> {
             }
             if (state is CourseLoaded) {
               final List<CourseModel> course = state.courses;
-              final args = ModalRoute.of(context)!.settings.arguments as String?;
+              final args =
+                  ModalRoute.of(context)!.settings.arguments as String?;
               // int? index;
               if (args != null) {
                 course.indexWhere((element) => element.title == args);
@@ -50,17 +70,22 @@ class _CourseDetayState extends State<CourseDetay> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 250,
-                      child: ListView.builder(
-                        shrinkWrap: true,
+                    Container(
+                      color: Colors.blueGrey,
+                      height: 350,
+                      child: SizedBox(
+                        height: 250,
+                        child: ListView.builder(
+                          shrinkWrap: true,
 
-                        itemCount: state.courses.length,
+                          itemCount: state.courses.length,
 
-                        itemBuilder: (context, index) {
-                          return CustomVideoPlayer(videoLink: video[index].videoUrl!);
-                        },
-                        scrollDirection: Axis.vertical, // Yatay sıralama için
+                          itemBuilder: (context, index) {
+                            return CustomVideoPlayer(
+                                videoLink: video[index].videoUrl!);
+                          },
+                          scrollDirection: Axis.vertical, // Yatay sıralama için
+                        ),
                       ),
                     ),
                     const Text("Video İsmi"),

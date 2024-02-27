@@ -20,8 +20,11 @@ class _EvaluationUiCardState extends State<EvaluationUiCard> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(0),
+          bottomRight: Radius.circular(16),
+          bottomLeft: Radius.circular(16),
         ),
       ),
       child: Column(

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tobetoappv2/screens/evaluation_screen.dart';
 import 'package:tobetoappv2/screens/profil_screen.dart';
 
 class drawerItem extends StatelessWidget {
@@ -11,7 +12,8 @@ class drawerItem extends StatelessWidget {
 
   Future<String?> getUsername(String uid) async {
     try {
-      DocumentSnapshot userSnapshot = await FirebaseFirestore.instance.collection('users').doc(uid).get();
+      DocumentSnapshot userSnapshot =
+          await FirebaseFirestore.instance.collection('users').doc(uid).get();
 
       if (userSnapshot.exists) {
         // Belge varsa, kullanıcının "username" değerini al
@@ -69,17 +71,25 @@ class drawerItem extends StatelessWidget {
                   title: Text(
                     "Ana Sayfa",
                     style: GoogleFonts.ptSans(
-                      textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
+                      textStyle: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.normal),
                     ),
                   ),
                   leading: const Icon(Icons.home),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const EvaluationScreen(),
+                        ));
+                  },
                   title: Text(
                     "Değerlendirmeler",
                     style: GoogleFonts.ptSans(
-                      textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
+                      textStyle: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.normal),
                     ),
                   ),
                   leading: const Icon(Icons.checklist),
@@ -95,7 +105,8 @@ class drawerItem extends StatelessWidget {
                   title: Text(
                     "Profilim",
                     style: GoogleFonts.ptSans(
-                      textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
+                      textStyle: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.normal),
                     ),
                   ),
                   leading: const Icon(Icons.account_box),
@@ -104,7 +115,8 @@ class drawerItem extends StatelessWidget {
                   title: Text(
                     "Katalog",
                     style: GoogleFonts.ptSans(
-                      textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
+                      textStyle: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.normal),
                     ),
                   ),
                   leading: const Icon(Icons.list),
@@ -113,7 +125,8 @@ class drawerItem extends StatelessWidget {
                   title: Text(
                     "Takvim",
                     style: GoogleFonts.ptSans(
-                      textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
+                      textStyle: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.normal),
                     ),
                   ),
                   leading: const Icon(Icons.calendar_month_outlined),
@@ -125,7 +138,8 @@ class drawerItem extends StatelessWidget {
                   title: Text(
                     "Sistemden Çıkış",
                     style: GoogleFonts.ptSans(
-                      textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
+                      textStyle: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.normal),
                     ),
                   ),
                   leading: const Icon(Icons.exit_to_app),
@@ -139,7 +153,8 @@ class drawerItem extends StatelessWidget {
                     Text(
                       "2024 Tobeto",
                       style: GoogleFonts.ptSans(
-                        textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                        textStyle: const TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.normal),
                       ),
                     ),
                   ],
