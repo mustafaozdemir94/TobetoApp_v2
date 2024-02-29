@@ -60,15 +60,15 @@ class _ProfilScreenState extends State<ProfilScreen> {
                       const SizedBox(
                         height: 100,
                       ),
-                      const SizedBox(
+                      SizedBox(
                         width: 150,
                         height: 150,
-                        // child: ClipRRect(
-                        //   borderRadius: BorderRadius.circular(100),
-                        //   child: //Image(
-                        //     //image: NetworkImage("${user.profilephoto}"),
-                        //  // ),
-                        // ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Image(
+                            image: NetworkImage("${user.profilephoto}"),
+                          ),
+                        ),
                       ),
                       const SizedBox(
                         height: 10,

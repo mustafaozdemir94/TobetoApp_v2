@@ -7,4 +7,9 @@ class CourseRepository {
     QuerySnapshot snapshot = await collectionRef.get();
     return snapshot.docs.map((doc) => CourseModel.fromMap(doc.data() as Map<String, dynamic>)).toList();
   }
+
+  Future<CourseModel> fetchCourseById(String id) async {
+    DocumentSnapshot doc = await FirebaseFirestore.instance.collection("course").doc(id).get();
+    return CourseModel.fromMap(doc.data() as Map<String, dynamic>);
+  }
 }

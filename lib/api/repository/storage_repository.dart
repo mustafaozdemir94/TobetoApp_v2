@@ -10,11 +10,11 @@ class StorageRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future uploadPhoto(File photoUrl) async {
+  Future<String> uploadPhoto(File photoUrl) async {
 // Upload işlemini gerçekleştirirken kullanıcı'nın bilgisini'de alalım.
 
     User? loggedInUser = _auth.currentUser!;
-
+    print(loggedInUser);
 // Fotoğrafı göndermeden önce referens verilmesi gerek:
     final reference = _firebaseStorage.ref().child('profileImages/${loggedInUser.uid}.png');
 
@@ -26,11 +26,18 @@ class StorageRepository {
 // İndirme Url'ni  Firestore'a kaydetmek için alıyorum.
 
     final downloadUrl = await reference.getDownloadURL();
-
+    print(downloadUrl);
 // users --> koleksiyonuna ekleyebilirsin.
-    await _firestore.collection(Collections.USERS).doc(loggedInUser.uid).update({
-      'profilephoto': downloadUrl,
-      "userId": loggedInUser.uid,
-    });
+    // try {
+    //   print("Başladı");
+    //   await _firestore.collection(Collections.USERS).doc(loggedInUser.uid).update({
+    //     'profilephoto': downloadUrl,
+    //     "userId": loggedInUser.uid,
+    //   });
+    //   print("Bitti");
+    // } catch (e) {
+    //   print(e);
+    // }
+    return downloadUrl;
   }
 }

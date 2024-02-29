@@ -17,7 +17,6 @@ class TrainingsCard extends StatefulWidget {
 }
 
 class _TrainingsCardState extends State<TrainingsCard> {
-  final route = const CourseDetay().toString();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,7 +73,9 @@ class _TrainingsCardState extends State<TrainingsCard> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, "route", arguments: widget.course.title);
+                  print(widget.course.id!);
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => CourseDetay(id: widget.course.id!)));
                 },
                 child: Container(
                   child: Text(
