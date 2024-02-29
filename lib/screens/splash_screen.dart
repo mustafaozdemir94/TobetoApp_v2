@@ -1,7 +1,7 @@
-/*import 'dart:async';
-
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:tobetoappv2/screens/start.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  String lottieSplashUrl = 'https://lottie.host/117bf829-176c-42ec-b376-85572430170e/wuZc6tsqP8.json';
+  String lottieSplashUrl = 'https://lottie.host/6c98c34f-2892-4595-a7fc-ed569d04324d/cXV6HKNNe4.json';
 
   @override
   void initState() {
@@ -19,22 +19,25 @@ class _SplashScreenState extends State<SplashScreen> {
     startTimer();
   }
 
-  startTimer() {
+  void startTimer() {
     var duration = const Duration(seconds: 4);
-    return Timer(duration, route);
+    Timer(duration, route);
   }
 
-  route() {
-    Navigator.pushReplacementNamed(context, '/welcome');
+  void route() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const StartPage()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueGrey,
-        body: Center(
-          child: Lottie.network(lottieSplashUrl),
-        ));
+      backgroundColor: Colors.blueGrey,
+      body: Center(
+        child: Lottie.network(lottieSplashUrl),
+      ),
+    );
   }
 }
-*/

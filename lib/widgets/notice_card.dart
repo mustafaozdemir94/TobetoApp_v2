@@ -89,7 +89,42 @@ class _NoticeCardState extends State<NoticeCard> {
                 ],
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  // Burada devamını oku işlevini tanımlayabiliriz
+                  showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                      title: const Text("Ocak Ayı Tercih Formu Bilgilendirmesi"),
+                      content: const SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Tercih formunu bekleyen adaylarımızın discorddaki duyuruyu takip etmesini rica ederiz.\nFormu ulaşanların bugün saat 18.00'e kadar tercih formunu göndermeleri gerekmektedir.\nForm ulaşmayan kişiler discord üzerinden gerekli bilgilendirmeyi ekibe ulaştırabilir.",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              "Sevgiler,",
+                              style: TextStyle(fontSize: 14),
+                            ),
+                          ],
+                        ),
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('Kapat'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
                 child: Container(
                   child: Text(
                     "Devamını Oku =>",

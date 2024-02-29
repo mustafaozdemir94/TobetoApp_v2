@@ -2,11 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tobetoappv2/api/blocs/profile/profile_bloc.dart';
 import 'package:tobetoappv2/api/blocs/profile/profile_event.dart';
 import 'package:tobetoappv2/api/blocs/profile/profile_state.dart';
 import 'package:tobetoappv2/models/usermodel.dart';
+import 'package:tobetoappv2/widgets/app_bar_widget_inside.dart';
 
 class ProfilScreenUpdate extends StatefulWidget {
   const ProfilScreenUpdate({Key? key}) : super(key: key);
@@ -20,6 +22,7 @@ class _ProfilScreenUpdateState extends State<ProfilScreenUpdate> {
   final TextEditingController _surNameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _biographyController = TextEditingController();
   final ImagePicker _imagePicker = ImagePicker();
   File? _selectedPhoto;
 
@@ -38,7 +41,10 @@ class _ProfilScreenUpdateState extends State<ProfilScreenUpdate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(150),
+        child: AppBarWidgetInside(),
+      ),
       body: BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) {
           if (state is ProfileInitial) {
@@ -50,94 +56,137 @@ class _ProfilScreenUpdateState extends State<ProfilScreenUpdate> {
             _surNameController.text = user.surname ?? "";
             _phoneController.text = user.phone ?? "";
             _emailController.text = user.email ?? "";
+            _biographyController.text = user.biography ?? "";
 
             return SingleChildScrollView(
-              child: Card(
-                elevation: 10,
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Column(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Card(
+                  elevation: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
                       children: [
-                        SizedBox(
-                          width: 150,
-                          height: 150,
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(100),
-                              child: _selectedPhoto != null
-                                  ? CircleAvatar(
-                                      radius: 70,
-                                      backgroundImage: FileImage(_selectedPhoto!),
-                                    )
-                                  : user.profilephoto != null
-                                      ? Container(
-                                          height: 100,
-                                          width: 100,
-                                          decoration: BoxDecoration(
-                                              image: DecorationImage(image: NetworkImage(user.profilephoto!))),
-                                        )
-                                      : const CircleAvatar(
-                                          radius: 70,
-                                          backgroundImage: AssetImage('assets/e.jpg'),
-                                        )),
-                        ),
-                        TextButton(
-                            onPressed: () {
-                              pickImage();
-                            },
-                            child: const Text("resim seç")),
-                        TextFormField(
-                          controller: _nameController,
-                          decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.person),
-                            label: Text("Ad"),
-                          ),
-                        ),
-                        TextFormField(
-                          controller: _surNameController,
-                          decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.person),
-                            label: Text("Soyad"),
-                          ),
-                        ),
-                        TextFormField(
-                          controller: _phoneController,
-                          decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.person),
-                            label: Text("Tel"),
-                          ),
-                        ),
-                        TextFormField(
-                          controller: _emailController,
-                          decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.person),
-                            label: Text("E Posta"),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            var profileBloc = context.read<ProfileBloc>();
-                            UserModel user = UserModel(
-                              name: _nameController.text,
-                              surname: _surNameController.text,
-                              phone: _phoneController.text,
-                              email: _emailController.text,
-                            );
-                            profileBloc.add(
-                              UpdateProfileEvent(userModel: user, photo: _selectedPhoto),
-                            );
-                            Navigator.pop(context);
-                          },
-                          child: const Text("Değişiklikleri Kaydet"),
-                        ),
+                        Column(
+                          children: [
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            _selectedPhoto != null
+                                ? CircleAvatar(radius: 70, backgroundImage: FileImage(_selectedPhoto!))
+                                : user.profilephoto != null
+                                    ? CircleAvatar(radius: 70, backgroundImage: NetworkImage(user.profilephoto!))
+                                    : const CircleAvatar(
+                                        radius: 70,
+                                        backgroundImage: AssetImage('assets/person_add_img.png'),
+                                      ),
+                            TextButton(
+                                onPressed: () {
+                                  pickImage();
+                                },
+                                child: Text(
+                                  "Resim Seçmek İçin Tıklayınız",
+                                  style: GoogleFonts.ptSans(
+                                    textStyle:
+                                        const TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.bold),
+                                  ),
+                                )),
+                            TextFormField(
+                              controller: _nameController,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                prefixIcon: const Icon(Icons.person),
+                                label: const Text("Ad"),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            TextFormField(
+                              controller: _surNameController,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                prefixIcon: const Icon(Icons.person_add_alt_1_rounded),
+                                label: const Text("Soyad"),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            TextFormField(
+                              controller: _phoneController,
+                              keyboardType: TextInputType.phone,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                prefixIcon: const Icon(Icons.phone),
+                                label: const Text("Telefon"),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            TextFormField(
+                              keyboardType: TextInputType.emailAddress,
+                              controller: _emailController,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                prefixIcon: const Icon(Icons.email),
+                                label: const Text("E Posta"),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            TextFormField(
+                              controller: _biographyController,
+                              maxLines: 5,
+                              keyboardType: TextInputType.multiline,
+                              decoration: InputDecoration(
+                                hintText: "Kısaca kendinizden bahsedin..",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                prefixIcon: const Icon(Icons.person_add_sharp),
+                                label: const Text("Hakkımda"),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blueGrey,
+                                foregroundColor: Colors.white,
+                              ),
+                              onPressed: () {
+                                var profileBloc = context.read<ProfileBloc>();
+                                UserModel user = UserModel(
+                                  name: _nameController.text,
+                                  surname: _surNameController.text,
+                                  phone: _phoneController.text,
+                                  email: _emailController.text,
+                                  biography: _biographyController.text,
+                                );
+                                profileBloc.add(
+                                  UpdateProfileEvent(userModel: user, photo: _selectedPhoto),
+                                );
+                                Navigator.pop(context);
+                              },
+                              child: const Text("Değişiklikleri Kaydet"),
+                            ),
+                          ],
+                        )
                       ],
-                    )
-                  ],
+                    ),
+                  ),
                 ),
               ),
             );

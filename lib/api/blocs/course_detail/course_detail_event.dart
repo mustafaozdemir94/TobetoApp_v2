@@ -7,3 +7,5 @@ class FetchCourseDetailEvent extends CourseDetailEvent {
     required this.id,
   });
 }
+
+class ResetFetchDetailEvent extends CourseDetailEvent {}

@@ -11,6 +11,7 @@ import 'package:tobetoappv2/api/repository/course_repository.dart';
 import 'package:tobetoappv2/api/repository/storage_repository.dart';
 import 'package:tobetoappv2/api/repository/user_repository.dart';
 import 'package:tobetoappv2/firebase_options.dart';
+import 'package:tobetoappv2/screens/splash_screen.dart';
 import 'package:tobetoappv2/screens/start.dart';
 
 void main() async {
@@ -26,6 +27,7 @@ void main() async {
       BlocProvider<CourseDetailBloc>(create: (context) => CourseDetailBloc(courseRepository: courseRepo))
     ],
     child: const MaterialApp(
+      //theme: ThemeData(useMaterial3: true),
       home: StartPage(),
     ),
   ));

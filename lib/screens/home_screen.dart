@@ -8,12 +8,14 @@ import 'package:tobetoappv2/api/blocs/course/course_event.dart';
 import 'package:tobetoappv2/api/blocs/course/course_state.dart';
 import 'package:tobetoappv2/constants/collection_names.dart';
 import 'package:tobetoappv2/data/course_dummy.dart';
+import 'package:tobetoappv2/screens/evaluation_screen.dart';
 import 'package:tobetoappv2/widgets/app_bar_widget.dart';
 import 'package:tobetoappv2/widgets/applications_card.dart';
 import 'package:tobetoappv2/widgets/drawer.dart';
 import 'package:tobetoappv2/widgets/evaluation_ui_card.dart';
 import 'package:tobetoappv2/widgets/exam_card.dart';
 import 'package:tobetoappv2/widgets/notice_card.dart';
+import 'package:tobetoappv2/widgets/notice_card2.dart';
 import 'package:tobetoappv2/widgets/profil_ui_card.dart';
 import 'package:tobetoappv2/widgets/startlearning_ui_card.dart';
 import 'package:tobetoappv2/widgets/survey_card.dart';
@@ -52,8 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal, // Yatay sıralama için
                       children: const [
                         ApplicationsCard(),
-                        ApplicationsCard(),
-                        ApplicationsCard(),
                       ],
                     ),
                     BlocBuilder<CourseBloc, CourseState>(
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal, // Yatay sıralama için
                       children: const [
                         NoticeCard(),
-                        NoticeCard(),
+                        NoticeCard2(),
                       ],
                     ),
                     ListView(
@@ -126,8 +126,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal,
                       children: const [
                         ExamCard(),
-                        ExamCard(),
-                        ExamCard(),
                       ],
                     ),
                   ),
@@ -166,29 +164,43 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         bottomNavigationBar: Container(
           color: Colors.blueGrey,
-          child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
             child: GNav(
               backgroundColor: Colors.blueGrey,
               color: Colors.white,
               activeColor: Colors.white,
               tabBackgroundColor: Colors.grey,
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               gap: 10,
               tabs: [
                 GButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomeScreen(),
+                        ));
+                  },
                   icon: Icons.home,
                   text: "Ana Sayfa",
                 ),
                 GButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const EvaluationScreen(),
+                        ));
+                  },
                   icon: Icons.checklist,
                   text: "Değerlendirmeler",
                 ),
-                GButton(
+                const GButton(
                   icon: Icons.list,
                   text: "Katalog",
                 ),
-                GButton(
+                const GButton(
                   icon: Icons.calendar_month_outlined,
                   text: "Takvim",
                 ),

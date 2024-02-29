@@ -7,6 +7,7 @@ class CourseDetailBloc extends Bloc<CourseDetailEvent, CourseDetailState> {
   final CourseRepository courseRepository;
   CourseDetailBloc({required this.courseRepository}) : super(CourseDetailInitial()) {
     on<FetchCourseDetailEvent>(_onFetchCourseDetail);
+    on<ResetFetchDetailEvent>(_onReset);
   }
   void _onFetchCourseDetail(FetchCourseDetailEvent event, Emitter<CourseDetailState> emit) async {
     emit(CourseDetailLoading());
@@ -18,5 +19,9 @@ class CourseDetailBloc extends Bloc<CourseDetailEvent, CourseDetailState> {
         message: e.toString(),
       ));
     }
+  }
+
+  void _onReset(ResetFetchDetailEvent event, Emitter<CourseDetailState> emit) async {
+    emit(CourseDetailInitial());
   }
 }

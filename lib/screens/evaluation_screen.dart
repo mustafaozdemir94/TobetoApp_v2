@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:tobetoappv2/screens/home_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EvaluationScreen extends StatefulWidget {
@@ -17,10 +19,9 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
     Specialty('Masaüstü Programlama', ""),
   ];
   List<Detail> cardDetail = [
-    Detail("Tobeto İşte Başarı Modeli",
-        "80 soru ile yetkinliklerini ölç, önerilen eğitimleri tamamla, rozetini kazan."),
-    Detail("Yazılımda Başarı Testi",
-        "Çoktan seçmeli sorular ile teknik bilgini test et.")
+    Detail(
+        "Tobeto İşte Başarı Modeli", "80 soru ile yetkinliklerini ölç, önerilen eğitimleri tamamla, rozetini kazan."),
+    Detail("Yazılımda Başarı Testi", "Çoktan seçmeli sorular ile teknik bilgini test et.")
   ];
   @override
   Widget build(BuildContext context) {
@@ -38,8 +39,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
         ),
         backgroundColor: Colors.blueGrey,
         elevation: 22,
-        bottom: const PreferredSize(
-            preferredSize: Size.fromHeight(75), child: SizedBox()),
+        bottom: const PreferredSize(preferredSize: Size.fromHeight(75), child: SizedBox()),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(100),
@@ -230,11 +230,7 @@ class DeveloperTestCard extends StatelessWidget {
                       backgroundColor: Colors.white,
                     ),
                     onPressed: () {
-                      if (link != null) {
-                        _launchUrl();
-                      } else {
-                        print('Bu öğe için link bulunmamaktadır.');
-                      }
+                      _launchUrl();
                     },
                     child: const Text("Başla")),
               ),

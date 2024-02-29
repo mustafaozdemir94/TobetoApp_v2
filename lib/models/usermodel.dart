@@ -7,6 +7,7 @@ class UserModel {
   String? email;
   String? phone;
   String? profilephoto;
+  String? biography;
   UserModel({
     this.username,
     this.userId,
@@ -15,6 +16,7 @@ class UserModel {
     this.email,
     this.phone,
     this.profilephoto,
+    this.biography,
   });
 
   // ----------- haritalar çekilir
@@ -27,6 +29,7 @@ class UserModel {
       phone: map["phone"] ?? "",
       username: map["username"] ?? "",
       profilephoto: map["profilephoto"] ?? "",
+      biography: map["biography"] ?? "",
     );
   }
 
@@ -41,6 +44,7 @@ class UserModel {
       "phone": phone,
       "username": username,
       "profilephoto": profilephoto,
+      "biography": biography,
     };
   }
 }
