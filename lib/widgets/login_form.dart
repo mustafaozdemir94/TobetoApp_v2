@@ -111,10 +111,6 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
           ),
-          /*ElevatedButton(
-            onPressed: _submit,
-            child: const Text('Giriş Yap'),
-          ),*/
         ],
       ),
     );

@@ -78,7 +78,7 @@ class _ProfilScreenUpdateState extends State<ProfilScreenUpdate> {
                                     ? CircleAvatar(radius: 70, backgroundImage: NetworkImage(user.profilephoto!))
                                     : const CircleAvatar(
                                         radius: 70,
-                                        backgroundImage: AssetImage('assets/person_add_img.png'),
+                                        backgroundImage: AssetImage('assets/profile/person_add_img.png'),
                                       ),
                             TextButton(
                                 onPressed: () {

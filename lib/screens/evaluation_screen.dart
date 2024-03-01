@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobetoappv2/widgets/app_bar_widget_inside.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EvaluationScreen extends StatefulWidget {
@@ -14,35 +15,35 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
     Specialty('Full Stack'),
     Specialty('Microsoft SQL Server'),
   ];
-  List<Detail> cardDetail = [
-    Detail("Yazılımda Başarı Testi",
-        "Çoktan seçmeli sorular ile teknik bilgini test et.")
-  ];
+  List<Detail> cardDetail = [Detail("Yazılımda Başarı Testi", "Çoktan seçmeli sorular ile teknik bilgini test et.")];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Container(
-          width: 200,
-          height: 200,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/666.png'),
-            ),
-          ),
-        ),
-        backgroundColor: Colors.blueGrey,
-        elevation: 22,
-        bottom: const PreferredSize(
-            preferredSize: Size.fromHeight(75), child: SizedBox()),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(100),
-            bottomRight: Radius.circular(100),
-          ),
-        ),
-      ),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(150),
+        child: AppBarWidgetInside(),
+      ), //AppBar(
+      //   centerTitle: true,
+      //   title: Container(
+      //     width: 200,
+      //     height: 200,
+      //     decoration: const BoxDecoration(
+      //       image: DecorationImage(
+      //         image: AssetImage('assets/666.png'),
+      //       ),
+      //     ),
+      //   ),
+      //   backgroundColor: Colors.blueGrey,
+      //   elevation: 22,
+      //   bottom: const PreferredSize(
+      //       preferredSize: Size.fromHeight(75), child: SizedBox()),
+      //   shape: const RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.only(
+      //       bottomLeft: Radius.circular(100),
+      //       bottomRight: Radius.circular(100),
+      //     ),
+      //   ),
+      // ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

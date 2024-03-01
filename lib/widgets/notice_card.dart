@@ -90,7 +90,6 @@ class _NoticeCardState extends State<NoticeCard> {
               ),
               InkWell(
                 onTap: () {
-                  // Burada devamını oku işlevini tanımlayabiliriz
                   showDialog(
                     context: context,
                     builder: (_) => AlertDialog(
@@ -102,7 +101,7 @@ class _NoticeCardState extends State<NoticeCard> {
                             Text(
                               "Tercih formunu bekleyen adaylarımızın discorddaki duyuruyu takip etmesini rica ederiz.\nFormu ulaşanların bugün saat 18.00'e kadar tercih formunu göndermeleri gerekmektedir.\nForm ulaşmayan kişiler discord üzerinden gerekli bilgilendirmeyi ekibe ulaştırabilir.",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.normal,
                                 fontSize: 16,
                               ),
                             ),

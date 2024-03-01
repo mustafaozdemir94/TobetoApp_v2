@@ -12,7 +12,7 @@ class appBar extends StatelessWidget {
     return AppBar(
       title: Padding(
         padding: const EdgeInsets.fromLTRB(10, 20, 60, 20),
-        child: Image.asset('assets/666.png'),
+        child: Image.asset('assets/drawer/drawer_img.png'),
       ),
       centerTitle: true,
       //backgroundColor: const Color(0xFFbb76fe),

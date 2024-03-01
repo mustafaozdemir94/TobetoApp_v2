@@ -12,7 +12,7 @@ class AppBarWidgetInside extends StatelessWidget {
         height: 200,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/666.png'),
+            image: AssetImage('assets/drawer/drawer_img.png'),
           ),
         ),
       ),

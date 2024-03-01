@@ -7,7 +7,7 @@ import 'package:tobetoappv2/api/blocs/course/course_bloc.dart';
 import 'package:tobetoappv2/api/blocs/course/course_event.dart';
 import 'package:tobetoappv2/api/blocs/course/course_state.dart';
 import 'package:tobetoappv2/constants/collection_names.dart';
-import 'package:tobetoappv2/data/course_dummy.dart';
+
 import 'package:tobetoappv2/screens/evaluation_screen.dart';
 import 'package:tobetoappv2/widgets/app_bar_widget.dart';
 import 'package:tobetoappv2/widgets/applications_card.dart';
@@ -20,7 +20,6 @@ import 'package:tobetoappv2/widgets/profil_ui_card.dart';
 import 'package:tobetoappv2/widgets/startlearning_ui_card.dart';
 import 'package:tobetoappv2/widgets/survey_card.dart';
 import 'package:tobetoappv2/widgets/trainings_card.dart';
-import 'package:tobetoappv2/widgets/trainings_card_2.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -198,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const GButton(
                   icon: Icons.list,
-                  text: "Katalog",
+                  text: "Eğitimlerim",
                 ),
                 const GButton(
                   icon: Icons.calendar_month_outlined,

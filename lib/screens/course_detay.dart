@@ -18,13 +18,25 @@ class CourseDetay extends StatefulWidget {
 }
 
 class _CourseDetayState extends State<CourseDetay> {
-  late FlickManager flickManager;
+  late FlickManager? flickManager;
   Uri? videoUri;
+  late bool _disposed;
 
   @override
   void initState() {
     super.initState();
     context.read<CourseDetailBloc>().add(ResetFetchDetailEvent());
+    flickManager = null; // Başlangıçta flickManager null olarak başlatılıyor
+    _disposed = false;
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    flickManager?.dispose(); // Önceki flickManager nesnesini dispose et
+    flickManager = null; // Yeniden başlat
+    final courseDetailBloc = context.read<CourseDetailBloc>();
+    courseDetailBloc.add(FetchCourseDetailEvent(id: widget.id));
   }
 
   @override
@@ -37,7 +49,6 @@ class _CourseDetayState extends State<CourseDetay> {
       body: BlocBuilder<CourseDetailBloc, CourseDetailState>(
         builder: (context, state) {
           if (state is CourseDetailInitial) {
-            context.read<CourseDetailBloc>().add(FetchCourseDetailEvent(id: widget.id));
             return const Center(
               child: Text("İstek Atılıyor"),
             );
@@ -69,7 +80,7 @@ class _CourseDetayState extends State<CourseDetay> {
                     color: Colors.blueGrey,
                   ),
                   const SizedBox(height: 10),
-                  if (videoUri != null) FlickVideoPlayer(flickManager: flickManager),
+                  if (videoUri != null && flickManager != null) FlickVideoPlayer(flickManager: flickManager!),
                   const SizedBox(height: 20),
                   Row(
                     children: [
@@ -120,7 +131,10 @@ class _CourseDetayState extends State<CourseDetay> {
 
   @override
   void dispose() {
-    flickManager.dispose();
+    if (!_disposed) {
+      flickManager?.dispose(); // flickManager null değilse, dispose işlemini gerçekleştir
+      _disposed = true;
+    }
     super.dispose();
   }
 }

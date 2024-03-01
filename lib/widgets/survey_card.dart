@@ -25,12 +25,6 @@ class _SurveyCardState extends State<SurveyCard> {
             offset: const Offset(0, 3),
           ),
         ],
-        /*border: const Border(
-          left: BorderSide(
-            color: Color(0xFF076B34), // Sol köşe rengi       // Bu tasarımda ihtiyaç yok
-            width: 10,
-          ),
-        ),*/
         color: Colors.white,
       ),
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),

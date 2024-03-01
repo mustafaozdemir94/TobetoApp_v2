@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
+import 'package:tobetoappv2/widgets/app_bar_widget_inside.dart';
 
 class CalendarScreen extends StatelessWidget {
   const CalendarScreen({super.key});
@@ -8,27 +9,9 @@ class CalendarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Container(
-            width: 200,
-            height: 200,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/666.png'),
-              ),
-            ),
-          ),
-          backgroundColor: Colors.blueGrey,
-          elevation: 22,
-          bottom: const PreferredSize(
-              preferredSize: Size.fromHeight(75), child: SizedBox()),
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(100),
-              bottomRight: Radius.circular(100),
-            ),
-          ),
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(150),
+          child: AppBarWidgetInside(),
         ),
         body: SafeArea(
           child: Column(
@@ -38,15 +21,7 @@ class CalendarScreen extends StatelessWidget {
               ),
               Expanded(
                 child: Calendar(
-                  weekDays: const [
-                    "Pzt",
-                    "Sal",
-                    "Çar",
-                    "Per",
-                    "Cum",
-                    "Cmt",
-                    "Paz"
-                  ],
+                  weekDays: const ["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"],
                   todayColor: Colors.blue,
                   hideTodayIcon: true,
                   eventsList: Events().eventList,

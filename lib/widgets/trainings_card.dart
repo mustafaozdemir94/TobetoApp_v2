@@ -20,7 +20,7 @@ class _TrainingsCardState extends State<TrainingsCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 350,
+      width: 250,
       height: 200,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -55,7 +55,7 @@ class _TrainingsCardState extends State<TrainingsCard> {
             style: GoogleFonts.ptSans(
               textStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 15,
+                fontSize: 12, //15
               ),
             ),
           ),
@@ -84,7 +84,7 @@ class _TrainingsCardState extends State<TrainingsCard> {
                       textStyle: const TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 10,
                       ),
                     ),
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tobetoappv2/screens/education_screen.dart';
 
 class StartlearningUiCard extends StatefulWidget {
   const StartlearningUiCard({Key? key}) : super(key: key);
@@ -44,7 +45,13 @@ class _StartlearningUiCardState extends State<StartlearningUiCard> {
             height: 10,
           ),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EducationScreen(),
+                    ));
+              },
               child: Text(
                 "Başla",
                 style: GoogleFonts.ptSans(fontSize: 20),

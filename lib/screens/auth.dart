@@ -29,7 +29,8 @@ class _AuthPageState extends State<AuthPage> {
                   child: Container(
                     width: double.infinity,
                     height: 200,
-                    decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/666.png'))),
+                    decoration:
+                        const BoxDecoration(image: DecorationImage(image: AssetImage('assets/drawer/drawer_img.png'))),
                   ),
                 ),
               ),

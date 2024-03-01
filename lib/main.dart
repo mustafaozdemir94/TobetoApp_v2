@@ -21,20 +21,15 @@ void main() async {
   final userRepo = UserRepository();
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider<ProfileBloc>(
-          create: (context) => ProfileBloc(StorageRepository(), userRepo)),
-      BlocProvider<AuthBloc>(
-          create: (context) =>
-              AuthBloc(AuthRepository(), FirebaseAuth.instance, userRepo)),
-      BlocProvider<CourseBloc>(
-          create: (context) => CourseBloc(courseRepository: courseRepo)),
-      BlocProvider<CourseDetailBloc>(
-          create: (context) => CourseDetailBloc(courseRepository: courseRepo))
+      BlocProvider<ProfileBloc>(create: (context) => ProfileBloc(StorageRepository(), userRepo)),
+      BlocProvider<AuthBloc>(create: (context) => AuthBloc(AuthRepository(), FirebaseAuth.instance, userRepo)),
+      BlocProvider<CourseBloc>(create: (context) => CourseBloc(courseRepository: courseRepo)),
+      BlocProvider<CourseDetailBloc>(create: (context) => CourseDetailBloc(courseRepository: courseRepo))
     ],
     child: const MaterialApp(
       debugShowCheckedModeBanner: false,
       //theme: ThemeData(useMaterial3: true),
-      home: StartPage(),
+      home: SplashScreen(),
     ),
   ));
 }

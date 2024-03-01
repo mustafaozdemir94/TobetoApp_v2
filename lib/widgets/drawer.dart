@@ -59,14 +59,12 @@ class drawerItem extends StatelessWidget {
                               ? const CircleAvatar(
                                   backgroundColor: Colors.blueGrey,
                                   radius: 70,
-                                  backgroundImage:
-                                      AssetImage('assets/person_add_img.png'),
+                                  backgroundImage: AssetImage('assets/profile/person_add_img.png'),
                                 )
                               : CircleAvatar(
                                   backgroundColor: Colors.blueGrey,
                                   radius: 70,
-                                  backgroundImage:
-                                      NetworkImage(user.profilephoto!),
+                                  backgroundImage: NetworkImage(user.profilephoto!),
                                 ),
                           const SizedBox(
                             height: 10,
@@ -74,9 +72,7 @@ class drawerItem extends StatelessWidget {
                           Text(
                             '${user.name!} ${user.surname!}',
                             style: GoogleFonts.ptSans(
-                                color: Colors.white,
-                                textStyle:
-                                    Theme.of(context).textTheme.headlineMedium),
+                                color: Colors.white, textStyle: Theme.of(context).textTheme.headlineMedium),
                           ),
                           const SizedBox(
                             height: 5,
@@ -84,9 +80,7 @@ class drawerItem extends StatelessWidget {
                           Text(
                             user.email!,
                             style: GoogleFonts.ptSans(
-                                color: Colors.white,
-                                textStyle:
-                                    Theme.of(context).textTheme.labelLarge),
+                                color: Colors.white, textStyle: Theme.of(context).textTheme.labelLarge),
                           ),
                         ],
                       ),
@@ -103,8 +97,7 @@ class drawerItem extends StatelessWidget {
                     title: Text(
                       "Ana Sayfa",
                       style: GoogleFonts.ptSans(
-                        textStyle: const TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.normal),
+                        textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
                       ),
                     ),
                     leading: const Icon(Icons.home),
@@ -120,8 +113,7 @@ class drawerItem extends StatelessWidget {
                     title: Text(
                       "Değerlendirmeler",
                       style: GoogleFonts.ptSans(
-                        textStyle: const TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.normal),
+                        textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
                       ),
                     ),
                     leading: const Icon(Icons.checklist),
@@ -137,8 +129,7 @@ class drawerItem extends StatelessWidget {
                     title: Text(
                       "Profilim",
                       style: GoogleFonts.ptSans(
-                        textStyle: const TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.normal),
+                        textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
                       ),
                     ),
                     leading: const Icon(Icons.account_box),
@@ -152,10 +143,9 @@ class drawerItem extends StatelessWidget {
                           ));
                     },
                     title: Text(
-                      "Katalog",
+                      "Eğitimlerim",
                       style: GoogleFonts.ptSans(
-                        textStyle: const TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.normal),
+                        textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
                       ),
                     ),
                     leading: const Icon(Icons.list),
@@ -171,8 +161,7 @@ class drawerItem extends StatelessWidget {
                     title: Text(
                       "Takvim",
                       style: GoogleFonts.ptSans(
-                        textStyle: const TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.normal),
+                        textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
                       ),
                     ),
                     leading: const Icon(Icons.calendar_month_outlined),
@@ -184,8 +173,7 @@ class drawerItem extends StatelessWidget {
                     title: Text(
                       "Sistemden Çıkış",
                       style: GoogleFonts.ptSans(
-                        textStyle: const TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.normal),
+                        textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
                       ),
                     ),
                     leading: const Icon(Icons.exit_to_app),
@@ -199,8 +187,7 @@ class drawerItem extends StatelessWidget {
                       Text(
                         "2024 Tobeto",
                         style: GoogleFonts.ptSans(
-                          textStyle: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.normal),
+                          textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
                         ),
                       ),
                     ],

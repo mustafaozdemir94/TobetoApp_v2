@@ -47,7 +47,8 @@ class _ProfilScreenState extends State<ProfilScreen> {
                       height: 10,
                     ),
                     user.profilephoto == ""
-                        ? const CircleAvatar(radius: 70, backgroundImage: AssetImage("assets/person_add_img.png"))
+                        ? const CircleAvatar(
+                            radius: 70, backgroundImage: AssetImage("assets/profile/person_add_img.png"))
                         : CircleAvatar(
                             radius: 70,
                             backgroundImage: NetworkImage(user.profilephoto!),
