@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tobetoappv2/screens/evaluation_screen.dart';
 
 class EvaluationUiCard extends StatefulWidget {
   const EvaluationUiCard({Key? key}) : super(key: key);
@@ -44,7 +45,13 @@ class _EvaluationUiCardState extends State<EvaluationUiCard> {
             height: 10,
           ),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EvaluationScreen(),
+                    ));
+              },
               child: Text(
                 "Başla",
                 style: GoogleFonts.ptSans(fontSize: 20),
